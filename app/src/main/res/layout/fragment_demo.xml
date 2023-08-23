@@ -37,49 +37,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/settingsBtn"
-        style="@style/Camera2TopButtonStyle"
-        android:src="@mipmap/camera_toolbar_more"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbarBg"
-        app:layout_constraintEnd_toStartOf="@id/effects_btn"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toStartOf="@id/toolbarBg"
-        app:layout_constraintTop_toTopOf="@id/toolbarBg" />
-
-    <ImageView
-        android:id="@+id/effects_btn"
-        style="@style/Camera2TopButtonStyle"
-        android:src="@mipmap/camera_toolbar_filter"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbarBg"
-        app:layout_constraintEnd_toStartOf="@id/cameraTypeBtn"
-        app:layout_constraintStart_toEndOf="@id/settingsBtn"
-        app:layout_constraintTop_toTopOf="@id/toolbarBg"/>
-
-    <ImageView
-        android:id="@+id/cameraTypeBtn"
-        style="@style/Camera2TopButtonStyle"
-        android:src="@mipmap/camera_toolbar_type"
-        app:layout_constraintBottom_toTopOf="@id/toolbarBottomBarrier"
-        app:layout_constraintEnd_toStartOf="@id/voiceBtn"
-        app:layout_constraintStart_toEndOf="@id/effects_btn"
-        app:layout_constraintTop_toTopOf="@id/toolbarBg"/>
-
-    <ImageView
-        android:id="@+id/voiceBtn"
-        style="@style/Camera2TopButtonStyle"
-        android:src="@mipmap/camera_voice_off"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbarBg"
-        app:layout_constraintEnd_toStartOf="@id/resolutionBtn"
-        app:layout_constraintStart_toEndOf="@id/cameraTypeBtn"
-        app:layout_constraintTop_toTopOf="@id/toolbarBg" />
-
-    <ImageView
         android:id="@+id/resolutionBtn"
         style="@style/Camera2TopButtonStyle"
         android:src="@mipmap/camera_resolution"
         app:layout_constraintBottom_toBottomOf="@+id/toolbarBg"
         app:layout_constraintEnd_toEndOf="@id/toolbarBg"
-        app:layout_constraintStart_toEndOf="@id/voiceBtn"
         app:layout_constraintTop_toTopOf="@id/toolbarBg" />
 
     <androidx.constraintlayout.widget.Barrier
@@ -87,13 +49,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="settingsBtn,effects_btn,cameraTypeBtn,voiceBtn,resolutionBtn" />
+        app:constraint_referenced_ids="resolutionBtn" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/toolbarGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="toolbarBottomBarrier, settingsBtn,effects_btn,cameraTypeBtn,voiceBtn,resolutionBtn"/>
+        app:constraint_referenced_ids="toolbarBottomBarrier,resolutionBtn"/>
 
     <View
         android:id="@+id/controlPanelLayout"
@@ -124,17 +86,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/captureBtn" />
 
-    <ImageView
-        android:id="@+id/lensFacingBtn1"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/camera_switch"
-        app:layout_constraintBottom_toBottomOf="@+id/captureBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/captureBtn"
-        app:layout_constraintTop_toTopOf="@+id/captureBtn" />
-
     <ViewStub
         android:id="@+id/takePictureTipViewStub"
         android:layout_width="0dp"
@@ -153,49 +104,6 @@
         app:layout_constraintEnd_toEndOf="@+id/controlPanelLayout"
         app:layout_constraintStart_toStartOf="@+id/controlPanelLayout"
         app:layout_constraintTop_toTopOf="@+id/controlPanelLayout">
-
-        <TextView
-            android:id="@+id/takePictureModeTv"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:drawableBottom="@drawable/camera_bottom_dot_transparent"
-            android:drawablePadding="1dp"
-            android:gravity="center"
-            android:text="photo"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/recordVideoModeTv"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/recordVideoModeTv"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginStart="20dp"
-            android:drawableBottom="@drawable/camera_bottom_dot_transparent"
-            android:gravity="center"
-            android:text="video"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/takePictureModeTv"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/recordAudioModeTv"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginStart="20dp"
-            android:drawableBottom="@drawable/camera_bottom_dot_transparent"
-            android:gravity="center"
-            android:text="audio"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/recordVideoModeTv"
-            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

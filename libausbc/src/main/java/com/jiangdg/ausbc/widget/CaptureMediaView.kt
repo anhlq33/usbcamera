@@ -63,7 +63,7 @@ class CaptureMediaView : View {
     private var mFirstDraw = true
 
     interface OnViewClickListener {
-        fun onViewClick(mode: CaptureMode?)
+        fun onViewClick()
     }
 
     fun setOnViewClickListener(listener: OnViewClickListener?) {
@@ -110,16 +110,6 @@ class CaptureMediaView : View {
     }
 
     /**
-     * 设置拍摄模式
-     *
-     * @param model 拍照 or 录像
-     */
-    fun setCaptureMode(model: CaptureMode?) {
-        mCaptureModel = model
-        invalidate()
-    }
-
-    /**
      * 设置按钮风格
      *
      * @param theme 风格，目前支持蓝色系和白色系两种
@@ -156,7 +146,7 @@ class CaptureMediaView : View {
         if (event.action == MotionEvent.ACTION_UP) {
             if (listener != null) {
                 showClickAnimation()
-                listener!!.onViewClick(mCaptureModel)
+                listener!!.onViewClick()
             }
         }
         return true
@@ -215,11 +205,7 @@ class CaptureMediaView : View {
     
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        if (mCaptureModel == CaptureMode.MODE_CAPTURE_VIDEO || mCaptureModel == CaptureMode.MODE_CAPTURE_AUDIO) {
-            drawCaptureVideo(canvas)
-        } else {
-            drawCapturePicture(canvas)
-        }
+        drawCapturePicture(canvas)
         if (mFirstDraw) {
             mFirstDraw = false
         }
@@ -234,11 +220,9 @@ class CaptureMediaView : View {
     }
 
     private fun showClickAnimation() {
-        if (mCaptureModel == CaptureMode.MODE_CAPTURE_PIC) {
-            mAnimator = ObjectAnimator.ofFloat(this, "internalCirclePercent", 1.0f, 0.85f, 1.0f)
-            mAnimator?.duration = 150
-            mAnimator?.start()
-        }
+        mAnimator = ObjectAnimator.ofFloat(this, "internalCirclePercent", 1.0f, 0.85f, 1.0f)
+        mAnimator?.duration = 150
+        mAnimator?.start()
     }
 
     private fun drawCapturePicture(canvas: Canvas) {

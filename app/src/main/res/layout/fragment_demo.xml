@@ -11,7 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/modeSwitchLayout"
+        app:layout_constraintBottom_toTopOf="@+id/controlPanelLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbarBg"/>
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:src="@mipmap/ic_uvc"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/modeSwitchLayout"
+        app:layout_constraintBottom_toTopOf="@+id/controlPanelLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/cameraViewContainer" />
@@ -72,8 +72,8 @@
         android:layout_height="76dp"
         app:layout_constraintBottom_toBottomOf="@+id/controlPanelLayout"
         app:layout_constraintEnd_toEndOf="@id/controlPanelLayout"
-        app:layout_constraintStart_toStartOf="@id/controlPanelLayout"
-        app:layout_constraintTop_toBottomOf="@+id/modeSwitchLayout" />
+        app:layout_constraintStart_toStartOf="@id/controlPanelLayout" />
+<!--        app:layout_constraintTop_toBottomOf="@+id/modeSwitchLayout" />-->
 
     <com.jiangdg.ausbc.widget.PreviewImageView
         android:id="@+id/albumPreviewIv"
@@ -86,26 +86,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/captureBtn" />
 
-    <ViewStub
-        android:id="@+id/takePictureTipViewStub"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout="@layout/layout_tip_view"
-        app:layout_constraintBottom_toTopOf="@+id/controlPanelLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarBg" />
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:id="@+id/modeSwitchLayout"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="29dp"-->
+<!--        android:layout_marginTop="6dp"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/controlPanelLayout"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/controlPanelLayout"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/controlPanelLayout">-->
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/modeSwitchLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="29dp"
-        android:layout_marginTop="6dp"
-        app:layout_constraintEnd_toEndOf="@+id/controlPanelLayout"
-        app:layout_constraintStart_toStartOf="@+id/controlPanelLayout"
-        app:layout_constraintTop_toTopOf="@+id/controlPanelLayout">
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/recTimerLayout"

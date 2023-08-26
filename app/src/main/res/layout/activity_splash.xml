@@ -2,6 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/ic_splash">
+    android:background="@mipmap/firealarm">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

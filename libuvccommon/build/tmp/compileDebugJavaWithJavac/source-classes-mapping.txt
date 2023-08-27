@@ -76,8 +76,10 @@ com/jiangdg/media/Recorder.java
  com.jiangdg.media.Recorder$EosHandler$EosThread
 com/jiangdg/widget/MultilineLabelPreferenceV7.java
  com.jiangdg.widget.MultilineLabelPreferenceV7
-com/jiangdg/media/ResolutionValidator.java
- com.jiangdg.media.ResolutionValidator
+com/jiangdg/media/MediaMovieRecorder.java
+ com.jiangdg.media.MediaMovieRecorder
+ com.jiangdg.media.MediaMovieRecorder$1
+ com.jiangdg.media.MediaMovieRecorder$IRecorderCallback
 com/jiangdg/media/ISurfaceEncoder.java
  com.jiangdg.media.ISurfaceEncoder
 com/jiangdg/mediaeffect/MediaImageSource.java
@@ -722,17 +724,15 @@ com/jiangdg/media/MediaReaper.java
  com.jiangdg.media.MediaReaper$ReaperListener
  com.jiangdg.media.MediaReaper$ReaperType
  com.jiangdg.media.MediaReaper$VideoReaper
-com/jiangdg/dialog/DialogFragmentEx.java
- com.jiangdg.dialog.DialogFragmentEx
+com/jiangdg/media/MediaVideoEncoder.java
+ com.jiangdg.media.MediaVideoEncoder
 com/jiangdg/widget/CheckableImageButton.java
  com.jiangdg.widget.CheckableImageButton
 com/jiangdg/glutils/IDrawer2dES2.java
  com.jiangdg.glutils.IDrawer2dES2
 com/jiangdg/media/AbstractVideoEncoder.java
  com.jiangdg.media.AbstractVideoEncoder
-com/jiangdg/media/MediaMovieRecorder.java
- com.jiangdg.media.MediaMovieRecorder
- com.jiangdg.media.MediaMovieRecorder$1
- com.jiangdg.media.MediaMovieRecorder$IRecorderCallback
-com/jiangdg/media/MediaVideoEncoder.java
- com.jiangdg.media.MediaVideoEncoder
+com/jiangdg/dialog/DialogFragmentEx.java
+ com.jiangdg.dialog.DialogFragmentEx
+com/jiangdg/media/ResolutionValidator.java
+ com.jiangdg.media.ResolutionValidator

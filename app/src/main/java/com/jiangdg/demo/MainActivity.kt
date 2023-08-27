@@ -14,47 +14,175 @@
  * limitations under the License.
  */
 package com.jiangdg.demo
+//
+//import android.Manifest.permission.*
+//import android.os.Bundle
+//import android.os.PowerManager
+//import androidx.appcompat.app.AppCompatActivity
+//import androidx.core.app.ActivityCompat
+//import androidx.core.content.PermissionChecker
+//import androidx.fragment.app.Fragment
+//import com.gyf.immersionbar.ImmersionBar
+//import com.jiangdg.ausbc.utils.ToastUtils
+//import com.jiangdg.ausbc.utils.Utils
+//import com.jiangdg.demo.databinding.ActivityMainBinding
+//
+///**
+// * Demos of camera usage
+// *
+// * @author Created by jiangdg on 2021/12/27
+// */
+//class MainActivity : AppCompatActivity() {
+//    private var mWakeLock: PowerManager.WakeLock? = null
+//    private var immersionBar: ImmersionBar? = null
+//    private lateinit var viewBinding: ActivityMainBinding
+//
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        setStatusBar()
+//        viewBinding = ActivityMainBinding.inflate(layoutInflater)
+//        setContentView(viewBinding.root)
+//        replaceDemoFragment(DemoFragment())
+//    }
+//
+//    override fun onStart() {
+//        super.onStart()
+//        mWakeLock = Utils.wakeLock(this)
+//    }
+//
+//    override fun onStop() {
+//        super.onStop()
+//        mWakeLock?.apply {
+//            Utils.wakeUnLock(this)
+//        }
+//    }
+//
+//    private fun replaceDemoFragment(fragment: Fragment) {
+//        val hasCameraPermission = PermissionChecker.checkSelfPermission(this, CAMERA)
+//        val hasStoragePermission =
+//            PermissionChecker.checkSelfPermission(this, WRITE_EXTERNAL_STORAGE)
+//        if (hasCameraPermission != PermissionChecker.PERMISSION_GRANTED || hasStoragePermission != PermissionChecker.PERMISSION_GRANTED) {
+//            if (ActivityCompat.shouldShowRequestPermissionRationale(this, CAMERA)) {
+//                ToastUtils.show(R.string.permission_tip)
+//            }
+//            ActivityCompat.requestPermissions(
+//                this,
+//                arrayOf(CAMERA, WRITE_EXTERNAL_STORAGE, RECORD_AUDIO),
+//                REQUEST_CAMERA
+//            )
+//            return
+//        }
+//        val transaction = supportFragmentManager.beginTransaction()
+//        transaction.replace(R.id.fragment_container, fragment)
+//        transaction.commitAllowingStateLoss()
+//    }
+//
+//    override fun onRequestPermissionsResult(
+//        requestCode: Int,
+//        permissions: Array<out String>,
+//        grantResults: IntArray
+//    ) {
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+//        when (requestCode) {
+//            REQUEST_CAMERA -> {
+//                val hasCameraPermission = PermissionChecker.checkSelfPermission(this, CAMERA)
+//                if (hasCameraPermission == PermissionChecker.PERMISSION_DENIED) {
+//                    ToastUtils.show(R.string.permission_tip)
+//                    return
+//                }
+//                replaceDemoFragment(DemoFragment())
+//            }
+//            REQUEST_STORAGE -> {
+//                val hasCameraPermission =
+//                    PermissionChecker.checkSelfPermission(this, WRITE_EXTERNAL_STORAGE)
+//                if (hasCameraPermission == PermissionChecker.PERMISSION_DENIED) {
+//                    ToastUtils.show(R.string.permission_tip)
+//                    return
+//                }
+//                // todo
+//            }
+//            else -> {
+//            }
+//        }
+//    }
+//
+//    override fun onDestroy() {
+//        super.onDestroy()
+//        immersionBar= null
+//    }
+//
+//    private fun setStatusBar() {
+//        immersionBar = ImmersionBar.with(this)
+//            .statusBarDarkFont(false)
+//            .statusBarColor(R.color.black)
+//            .navigationBarColor(R.color.black)
+//            .fitsSystemWindows(true)
+//            .keyboardEnable(true)
+//        immersionBar?.init()
+//    }
+//
+//    companion object {
+//        private const val REQUEST_CAMERA = 0
+//        private const val REQUEST_STORAGE = 1
+//    }
+//}
 
-import android.Manifest.permission.*
+import android.Manifest.permission.CAMERA
+import android.Manifest.permission.WRITE_EXTERNAL_STORAGE
 import android.os.Bundle
 import android.os.PowerManager
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.PermissionChecker
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.gyf.immersionbar.ImmersionBar
 import com.jiangdg.ausbc.utils.ToastUtils
 import com.jiangdg.ausbc.utils.Utils
 import com.jiangdg.demo.databinding.ActivityMainBinding
 
-/**
- * Demos of camera usage
- *
- * @author Created by jiangdg on 2021/12/27
- */
 class MainActivity : AppCompatActivity() {
     private var mWakeLock: PowerManager.WakeLock? = null
     private var immersionBar: ImmersionBar? = null
-    private lateinit var viewBinding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setStatusBar()
-        viewBinding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(viewBinding.root)
-        replaceDemoFragment(DemoFragment())
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val navView: BottomNavigationView = binding.navView
+
+        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.navigation_home, R.id.navigation_dashboard
+            )
+        )
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
+
+//        setStatusBar()
+//        replaceDemoFragment(HomeFragment())
     }
 
     override fun onStart() {
         super.onStart()
-        mWakeLock = Utils.wakeLock(this)
+//        mWakeLock = Utils.wakeLock(this)
     }
 
     override fun onStop() {
         super.onStop()
-        mWakeLock?.apply {
-            Utils.wakeUnLock(this)
-        }
+//        mWakeLock?.apply {
+//            Utils.wakeUnLock(this)
+//        }
     }
 
     private fun replaceDemoFragment(fragment: Fragment) {
@@ -67,7 +195,7 @@ class MainActivity : AppCompatActivity() {
             }
             ActivityCompat.requestPermissions(
                 this,
-                arrayOf(CAMERA, WRITE_EXTERNAL_STORAGE, RECORD_AUDIO),
+                arrayOf(CAMERA, WRITE_EXTERNAL_STORAGE),
                 REQUEST_CAMERA
             )
             return
@@ -90,7 +218,7 @@ class MainActivity : AppCompatActivity() {
                     ToastUtils.show(R.string.permission_tip)
                     return
                 }
-                replaceDemoFragment(DemoFragment())
+                replaceDemoFragment(HomeFragment())
             }
             REQUEST_STORAGE -> {
                 val hasCameraPermission =

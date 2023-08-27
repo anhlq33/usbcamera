@@ -14,7 +14,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.READ_LOGS" />
 
     <application
         android:name="com.jiangdg.demo.DemoApplication"
@@ -26,9 +25,9 @@
         android:requestLegacyExternalStorage="true"
         android:supportsRtl="true">
         <activity
-            android:name="com.jiangdg.demo.SplashActivity"
+            android:name="com.jiangdg.demo.MainActivity"
             android:exported="true"
-            android:theme="@style/SplashActivityStyle"
+            android:theme="@style/Theme.ClinkCameraDemo.NoActionBar"
             android:screenOrientation="fullSensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,9 +35,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="com.jiangdg.demo.MainActivity"
-            android:theme="@style/Theme.ClinkCameraDemo.NoActionBar" />
     </application>
 
 </manifest>

@@ -930,8 +930,8 @@ class MultiCameraClient(ctx: Context, callback: IDeviceConnectCallBack?) {
 
         private fun getDefaultCameraRequest(): CameraRequest {
             return CameraRequest.Builder()
-                .setPreviewWidth(1280)
-                .setPreviewHeight(720)
+                .setPreviewWidth(640)
+                .setPreviewHeight(480)
                 .create()
         }
     }

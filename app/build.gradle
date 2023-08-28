@@ -58,7 +58,7 @@ dependencies {
 
     implementation "com.tencent.bugly:crashreport:$bugly_version"
     implementation "com.tencent.bugly:nativecrashreport:$bugly_native_version"
-
+    implementation 'com.android.support:multidex:1.0.3'
     implementation project(':libutils')
 
     // For debug online

@@ -20,7 +20,6 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion rootProject.ext.versionCompiler
-    buildToolsVersion rootProject.ext.versionBuildTool
 
     compileOptions {
         sourceCompatibility rootProject.ext.javaSourceCompatibility
@@ -29,8 +28,6 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.versionTarget
-        versionCode 222
-        versionName '4.1.1'
         buildConfigField "String", "STL_NAME", "\"${project.property("STL_NAME")}\""
     }
     buildTypes {

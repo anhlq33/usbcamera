@@ -7,6 +7,91 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <View
+        android:id="@+id/statusPanelLayout"
+        android:layout_width="409dp"
+        android:layout_height="177dp"
+        android:background="@color/grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/GsmSt"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/green_light"
+        app:layout_constraintBottom_toBottomOf="@+id/statusPanelLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/statusPanelLayout"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/ServerSt"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/green_light"
+        app:layout_constraintBottom_toBottomOf="@+id/GsmSt"
+        app:layout_constraintEnd_toStartOf="@+id/GsmSt"
+        app:layout_constraintTop_toTopOf="@+id/GsmSt"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageView
+        android:id="@+id/SdcardSt"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/green_light"
+        app:layout_constraintBottom_toBottomOf="@+id/GsmSt"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/GsmSt"
+        app:layout_constraintStart_toStartOf="@+id/GsmSt"/>
+
+    <TextView
+        android:id="@+id/GsmTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:gravity="center"
+        android:text="GSM"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/GsmSt"
+        app:layout_constraintBottom_toBottomOf="@+id/statusPanelLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/ServerTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:gravity="center"
+        android:text="Server"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/GsmSt"
+        app:layout_constraintBottom_toBottomOf="@+id/statusPanelLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/GsmTxt"/>
+
+    <TextView
+        android:id="@+id/SdcardTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:gravity="center"
+        android:text="Sdcard"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/SdcardSt"
+        app:layout_constraintBottom_toBottomOf="@+id/statusPanelLayout"
+        app:layout_constraintStart_toEndOf="@+id/GsmSt"
+        app:layout_constraintEnd_toEndOf="@+id/statusPanelLayout"/>
+
     <FrameLayout
         android:id="@+id/cameraViewContainer"
         android:layout_width="0dp"
@@ -16,7 +101,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statusPanelLayout"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
@@ -33,9 +118,9 @@
 
     <View
         android:id="@+id/controlPanelLayout"
-        android:layout_width="413dp"
-        android:layout_height="136dp"
-        android:layout_marginBottom="252dp"
+        android:layout_width="409dp"
+        android:layout_height="88dp"
+        android:layout_marginBottom="72dp"
         android:background="@color/grey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,8 +132,8 @@
         android:layout_width="76dp"
         android:layout_height="76dp"
         app:layout_constraintBottom_toBottomOf="@+id/controlPanelLayout"
-        app:layout_constraintEnd_toEndOf="@id/controlPanelLayout"
-        app:layout_constraintStart_toStartOf="@id/controlPanelLayout" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.jiangdg.ausbc.widget.PreviewImageView
         android:id="@+id/albumPreviewIv"
@@ -71,40 +156,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/captureBtn"
         app:layout_constraintTop_toTopOf="@+id/captureBtn" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/recTimerLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@+id/controlPanelLayout"
-        app:layout_constraintStart_toStartOf="@+id/controlPanelLayout"
-        app:layout_constraintTop_toTopOf="@+id/controlPanelLayout">
-
-        <ImageView
-            android:id="@+id/recStateIv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/camera_rec_red_point"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/recTimeTv"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/recTimeTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:gravity="center"
-            android:text="00:00"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/recStateIv"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/frameRateTv"

@@ -92,7 +92,6 @@ class DemoFragment : CameraFragment(), View.OnClickListener, CaptureMediaView.On
 
     override fun initView() {
         super.initView()
-        mViewBinding.resolutionBtn.setOnClickListener(this)
         mViewBinding.albumPreviewIv.setOnClickListener(this)
         mViewBinding.captureBtn.setOnViewClickListener(this)
         mViewBinding.albumPreviewIv.setTheme(PreviewImageView.Theme.DARK)
@@ -189,7 +188,7 @@ class DemoFragment : CameraFragment(), View.OnClickListener, CaptureMediaView.On
     private fun handleCameraClosed() {
         mViewBinding.uvcLogoIv.visibility = View.VISIBLE
         mViewBinding.frameRateTv.visibility = View.GONE
-        ToastUtils.show("camera closed success")
+//        ToastUtils.show("camera closed success")
     }
 
     private fun handleCameraOpened() {
@@ -211,7 +210,9 @@ class DemoFragment : CameraFragment(), View.OnClickListener, CaptureMediaView.On
 
             }
         })
-        ToastUtils.show("camera opened success")
+
+//        ToastUtils.show("camera opened success")
+        updateResolution(1280,720)
     }
 
     override fun getCameraView(): IAspectRatio {
@@ -265,9 +266,6 @@ class DemoFragment : CameraFragment(), View.OnClickListener, CaptureMediaView.On
         clickAnimation(v!!, object : AnimatorListenerAdapter() {
             override fun onAnimationEnd(animation: Animator?) {
                 when (v) {
-                    mViewBinding.resolutionBtn -> {
-                        showResolutionDialog()
-                    }
                     mViewBinding.albumPreviewIv -> {
                         goToGalley()
                     }

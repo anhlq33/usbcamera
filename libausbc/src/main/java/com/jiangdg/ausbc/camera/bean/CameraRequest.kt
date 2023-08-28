@@ -237,7 +237,7 @@ class CameraRequest private constructor() {
     }
 
     companion object {
-        private const val DEFAULT_WIDTH = 640
-        private const val DEFAULT_HEIGHT = 480
+        private const val DEFAULT_WIDTH = 1280
+        private const val DEFAULT_HEIGHT = 720
     }
 }

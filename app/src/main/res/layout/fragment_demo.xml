@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/grey"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -11,7 +11,6 @@
         android:id="@+id/statusPanelLayout"
         android:layout_width="410dp"
         android:layout_height="127dp"
-        android:background="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +21,7 @@
         android:layout_width="38dp"
         android:layout_height="38dp"
         android:scaleType="centerCrop"
-        android:src="@mipmap/green_light"
+        android:src="@mipmap/green_led"
         app:layout_constraintBottom_toBottomOf="@+id/statusPanelLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/statusPanelLayout"
@@ -33,7 +32,7 @@
         android:layout_width="38dp"
         android:layout_height="38dp"
         android:scaleType="centerCrop"
-        android:src="@mipmap/green_light"
+        android:src="@mipmap/green_led"
         app:layout_constraintBottom_toBottomOf="@+id/GsmSt"
         app:layout_constraintEnd_toStartOf="@+id/GsmSt"
         app:layout_constraintTop_toTopOf="@+id/GsmSt"
@@ -44,7 +43,7 @@
         android:layout_width="38dp"
         android:layout_height="38dp"
         android:scaleType="centerCrop"
-        android:src="@mipmap/green_light"
+        android:src="@mipmap/green_led"
         app:layout_constraintBottom_toBottomOf="@+id/GsmSt"
         app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/GsmSt"
@@ -58,6 +57,7 @@
         android:gravity="center"
         android:text="GSM"
         android:textColor="@color/black"
+        android:fontFamily="@font/roboto"
         android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@+id/GsmSt"
         app:layout_constraintBottom_toBottomOf="@+id/statusPanelLayout"
@@ -69,14 +69,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
+        android:fontFamily="@font/roboto"
         android:gravity="center"
         android:text="Server"
         android:textColor="@color/black"
         android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@+id/GsmSt"
         app:layout_constraintBottom_toBottomOf="@+id/statusPanelLayout"
+        app:layout_constraintEnd_toStartOf="@+id/GsmTxt"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/GsmTxt"/>
+        app:layout_constraintTop_toBottomOf="@+id/GsmSt" />
 
     <TextView
         android:id="@+id/SdcardTxt"
@@ -85,6 +86,7 @@
         android:layout_marginStart="5dp"
         android:gravity="center"
         android:text="Sdcard"
+        android:fontFamily="@font/roboto"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@+id/SdcardSt"
@@ -96,7 +98,6 @@
         android:id="@+id/cameraViewContainer"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/grey"
         app:layout_constraintBottom_toTopOf="@+id/controlPanelLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -115,13 +116,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/cameraViewContainer" />
 
-
     <View
         android:id="@+id/controlPanelLayout"
         android:layout_width="409dp"
         android:layout_height="78dp"
         android:layout_marginBottom="72dp"
-        android:background="@color/grey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

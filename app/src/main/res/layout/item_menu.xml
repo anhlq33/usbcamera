@@ -1,0 +1,37 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/menuTagId"
+    android:background="@drawable/textview_selector"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <Switch
+        android:id="@+id/switcher"
+        android:padding="3dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true" />
+    <LinearLayout
+        android:layout_toStartOf="@id/switcher"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="5dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/titleTxtId"
+            android:padding="3dp"
+            android:layout_width="wrap_content"
+            android:text="Meeting Reminders"
+            android:textColor="#111"
+            android:textSize="14sp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/noteTxtId"
+            android:padding="3dp"
+            android:layout_width="wrap_content"
+            android:text="Meeting Reminders"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"/>
+    </LinearLayout>
+
+</RelativeLayout>

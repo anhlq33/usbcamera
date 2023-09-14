@@ -43,6 +43,8 @@ android {
 //    ndkVersion rootProject.ext.ndkVersion
 }
 
+def retrofitVersion = '2.7.2'
+
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "androidx.appcompat:appcompat:${androidXVersion}"
@@ -63,6 +65,12 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
     implementation "com.tencent.bugly:crashreport:$bugly_version"
     implementation "com.tencent.bugly:nativecrashreport:$bugly_native_version"
+
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-scalars:$retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.4.0"
+
     implementation 'com.android.support:multidex:1.0.3'
     implementation project(':libutils')
 

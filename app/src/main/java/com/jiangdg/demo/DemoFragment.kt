@@ -48,9 +48,15 @@ import com.jiangdg.ausbc.utils.bus.EventBus
 import com.jiangdg.utils.imageloader.ILoader
 import com.jiangdg.utils.imageloader.ImageLoaders
 import com.jiangdg.ausbc.widget.*
+import com.jiangdg.demo.network.ApiCallResponse
+import com.jiangdg.demo.network.ApiCallService
 import com.jiangdg.utils.MMKVUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.io.File
 import java.util.*
 
 /** CameraFragment Usage Demo
@@ -254,9 +260,54 @@ class DemoFragment : CameraFragment(), View.OnClickListener, CaptureMediaView.On
             override fun onComplete(path: String?) {
                 showRecentMedia(true)
                 mViewBinding.albumPreviewIv.setNewImageFlag(false)
+                SendFileToServer()
             }
         })
     }
+
+    private fun SendFileToServer() {
+        var fileNameFull: String? = FindNewestFile()
+        ApiCallService.call(fileNameFull).enqueue(object: Callback<ApiCallResponse> {
+            override fun onResponse(
+                call: Call<ApiCallResponse>,
+                response: Response<ApiCallResponse>
+            ) {
+                ToastUtils.show("Send success ${fileNameFull}")
+            }
+
+            override fun onFailure(call: Call<ApiCallResponse>, t: Throwable) {
+                ToastUtils.show("Send Fail")
+            }
+        })
+    }
+    private  fun FindNewestFile(): String?{
+        val directoryPath = "/storage/emulated/0/DCIM/Camera/"
+        val directory = File(directoryPath)
+
+        if (directory.exists() && directory.isDirectory) {
+            val files = directory.listFiles()
+
+            if (files.isNotEmpty()) {
+                // Sắp xếp danh sách các tệp theo thời gian chỉnh sửa giảm dần
+                val newestFile = files.maxByOrNull { it.lastModified() }
+
+                if (newestFile != null) {
+                    val newestFileName = directoryPath + newestFile.name
+//                    println("Tệp mới nhất trong thư mục là: $newestFileName")
+                    return newestFileName
+                } else {
+//                    println("Không có tệp nào trong thư mục.")
+                }
+            } else {
+//                println("Thư mục trống rỗng.")
+            }
+        } else {
+//            println("Thư mục không tồn tại hoặc không phải là thư mục.")
+        }
+        return null
+    }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()
